@@ -3,8 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": "https://dkslinkkyyy.github.io/fr-projekt",
-    "scripts": {
+    "scripts": {git a
         "predeploy": "vite build",
         "deploy": "gh-pages -d dist",
         "dev": "vite",
