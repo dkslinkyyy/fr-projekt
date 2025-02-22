@@ -4,6 +4,7 @@ import { User } from "../types/User";
 import Popup from "../components/Popup";
 import Card from "../components/Card";
 import { usePersistedUser } from "../hooks/usePersistedUser";
+import StateButton, { AuthState } from "../components/StateButton";
 
 const Login = () => {
   const [username, setUsername] = useState<string>("");
@@ -92,7 +93,7 @@ const Login = () => {
               required
             />
           </label>
-          <button type="submit">Logga in</button>
+          <StateButton state={AuthState.SIGN_IN} title="Logga in" />
         </form>
       </Card>
     </main>

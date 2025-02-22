@@ -1,5 +1,5 @@
 import React from "react";
-import LogoutButton from "./LogoutButton";
+import StateButton, { AuthState } from "./StateButton";
 
 interface CardProps {
   title?: string;
@@ -18,7 +18,7 @@ const Card: React.FC<CardProps> = ({
     <div className={`card ${className || ""}`}>
       <div className="card-header">
         <h1>{title}</h1>
-        {logoutBtn && <LogoutButton />}
+        {logoutBtn && <StateButton state={AuthState.SIGN_OUT} />}
       </div>
 
       <div className="card-content">{children}</div>
