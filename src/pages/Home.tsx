@@ -23,7 +23,7 @@ const Home = () => {
   }, [user, loading, navigate]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p>Laddar...</p>;
   }
 
   if (!user) {

@@ -21,7 +21,7 @@ const Login = () => {
   }, [loading, user, navigate]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p>Laddar...</p>;
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
