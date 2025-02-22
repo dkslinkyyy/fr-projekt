@@ -41,7 +41,7 @@ main {
   padding: 15px;
   border-radius: 15px;
   align-items: center;
-  gap: 10px;
+  gap: 2vh;
 }
 
 .card-content {
@@ -51,7 +51,17 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2vh;
+}
+
+.fact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
+}
+.fact-section p {
+  margin-top: 10px;
 }
 
 .card-header {
@@ -109,10 +119,9 @@ form {
   width: 50%;
   gap: 15px;
 }
-.card p {
+p {
   width: 100%;
   text-align: center;
-  padding: 20px;
 }
 
 form label {
