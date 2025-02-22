@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "scripts": {git a
+    "scripts": {
         "predeploy": "vite build",
         "deploy": "gh-pages -d dist",
         "dev": "vite",
