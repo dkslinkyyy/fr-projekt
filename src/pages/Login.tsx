@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { User } from "../interfaces/User";
+import { User } from "../types/User";
 import Popup from "../components/Popup";
 import Card from "../components/Card";
+import { usePersistedUser } from "../hooks/usePersistedUser";
 
 const Login = () => {
   const [username, setUsername] = useState<string>("");
@@ -10,10 +11,21 @@ const Login = () => {
   const [loginFailPopup, setLoginFailPopup] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); //hindra standard event
+  const { user, loading } = usePersistedUser();
 
-    //skapa objekt utifrån data från forms
+  useEffect(() => {
+    if (!loading && user) {
+      navigate("/main", { replace: true });
+    }
+  }, [loading, user, navigate]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     const inputUser: User = { username, hashKey };
 
     const adminUser: User = {
@@ -29,16 +41,22 @@ const Login = () => {
 
     const users: User[] = [adminUser, averageUser];
 
+    let isUserValid = false;
+
     users.forEach((user) => {
       if (
-        user.username == inputUser.username &&
-        user.hashKey == inputUser.hashKey
+        user.username === inputUser.username &&
+        user.hashKey === inputUser.hashKey
       ) {
-        navigate("/main", { state: { user } });
-      } else {
-        setLoginFailPopup(true);
+        localStorage.setItem("userData", JSON.stringify(user));
+        navigate("/main");
+        isUserValid = true;
       }
     });
+
+    if (!isUserValid) {
+      setLoginFailPopup(true);
+    }
   };
 
   return (
@@ -46,13 +64,14 @@ const Login = () => {
       <Card title="Logga in">
         {loginFailPopup && (
           <Popup
-            message="Fel användarnamn eller mejl!"
+            message="Fel användarnamn eller lösenord!"
             onClose={() => setLoginFailPopup(false)}
           />
         )}
         <p style={{ color: "red" }}>
-          detta är en dummy sida och därför är inloggningen hårdkodad(GÅR EJ ATT
-          SKAPA KONTO), <strong>hint till inloggning:</strong> kolla källkoden
+          Detta är en dummy-sida och därför är inloggningen hårdkodad (GÅR EJ
+          ATT SKAPA KONTO), <strong>hint till inloggning:</strong> kolla
+          källkoden
         </p>
         <form onSubmit={handleSubmit}>
           <label>
@@ -64,7 +83,6 @@ const Login = () => {
               required
             />
           </label>
-          <br />
           <label>
             Lösenord:
             <input
@@ -74,7 +92,6 @@ const Login = () => {
               required
             />
           </label>
-          <br />
           <button type="submit">Logga in</button>
         </form>
       </Card>

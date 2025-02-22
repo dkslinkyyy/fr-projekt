@@ -1,14 +1,26 @@
 import React from "react";
+import LogoutButton from "./LogoutButton";
 
 interface CardProps {
-  title: string;
-  children?: React.ReactNode; // 👈 This allows you to pass any HTML inside <Card>
+  title?: string;
+  children?: React.ReactNode;
+  className?: string;
+  logoutBtn?: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ title, children }) => {
+const Card: React.FC<CardProps> = ({
+  title,
+  children,
+  className,
+  logoutBtn,
+}) => {
   return (
-    <div className="card">
-      <h1>{title}</h1>
+    <div className={`card ${className || ""}`}>
+      <div className="card-header">
+        <h1>{title}</h1>
+        {logoutBtn && <LogoutButton />}
+      </div>
+
       <div className="card-content">{children}</div>
     </div>
   );

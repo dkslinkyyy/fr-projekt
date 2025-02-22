@@ -13,6 +13,9 @@ h1 {
 
 body {
   background: url("./assets/bg.jpg");
+  backdrop-filter: blur(3px);
+  background-size: 150%;
+  background-position: center; /* Ensures the image is centered */
 }
 Link {
   all: unset;
@@ -33,7 +36,8 @@ main {
   flex-direction: column;
   width: 500px;
   height: 750px;
-  background-color: rgba(16, 16, 16, 0.913);
+  background-color: rgba(16, 16, 16, 0.75);
+  box-shadow: rgba(16, 16, 16, 0.75) 0 0 24px;
   padding: 15px;
   border-radius: 15px;
   align-items: center;
@@ -41,6 +45,7 @@ main {
 }
 
 .card-content {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -49,9 +54,87 @@ main {
   gap: 10px;
 }
 
+.card-header {
+  position: relative;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .custom-link,
 a {
   all: unset;
   cursor: pointer;
   text-decoration: underline;
+  color: rgb(116, 198, 250);
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+input,
+button {
+  all: unset;
+}
+input {
+  background-color: #123;
+  border-radius: 15px;
+  height: 25px;
+  padding: 0 10px;
+}
+
+label {
+  color: white;
+}
+button {
+  background-color: rgb(47, 131, 227);
+  text-align: center;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 100%;
+  width: 50%;
+  gap: 15px;
+}
+.card p {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  width: 350px;
+  height: 150px;
+  background-color: rgba(16, 16, 16, 0.75);
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoutBtn {
+  font-size: 24px;
+  position: absolute;
+  left: 0;
 }

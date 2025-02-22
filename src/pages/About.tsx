@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import Card from "../components/Card";
-import CustomLink from "../components/CustomLink";
-function App() {
+import { Link } from "react-router-dom";
+function About() {
   return (
     <main>
-      <Card title="Om applikationenen">
+      <Card title="Om applikationenen" logoutBtn={true}>
         <p>
           Utvecklat av the one and only:{" "}
           <a
@@ -15,11 +14,13 @@ function App() {
             dkslinkkyy
           </a>
           <br></br>
-          <CustomLink to="/main">Gå tillbaka</CustomLink>
+          <Link className="custom-link bottom" to="/main">
+            Gå till Huvudsida
+          </Link>
         </p>
       </Card>
     </main>
   );
 }
 
-export default App;
+export default About;
