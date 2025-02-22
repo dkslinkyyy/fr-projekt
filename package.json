@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": "https://dkslikkyyy.github.io/fr-projekt",
+    "homepage": "https://dkslinkkyyy.github.io/fr-projekt",
     "scripts": {
         "predeploy": "vite build",
         "deploy": "gh-pages -d dist",
@@ -30,7 +30,10 @@
         "eslint": "^9.19.0",
         "eslint-plugin-react-hooks": "^5.0.0",
         "eslint-plugin-react-refresh": "^0.4.18",
+        "gh-pages": "^6.3.0",
         "globals": "^15.14.0",
+        "install": "^0.13.0",
+        "npm": "^11.1.0",
         "typescript": "~5.7.2",
         "typescript-eslint": "^8.22.0",
         "vite": "^6.1.0"
