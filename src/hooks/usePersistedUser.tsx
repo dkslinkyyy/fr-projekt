@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { User } from "../types/User";
+import { User } from "../interfaces/User";
 
 export const usePersistedUser = () => {
   const [user, setUser] = useState<User | null>(null);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { User } from "../types/User";
+import { User } from "../interfaces/User";
 import Popup from "../components/Popup";
 import Card from "../components/Card";
 import { usePersistedUser } from "../hooks/usePersistedUser";
